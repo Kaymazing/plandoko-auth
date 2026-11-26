@@ -1,0 +1,105 @@
+/* Surface, ink, border, and ember colors from KaymazingTemplate v4. */
+:root {
+  color-scheme: light dark;
+  --page: #f6f4f0;
+  --panel: #ffffff;
+  --sunk: #efece6;
+  --ink: #1c1a17;
+  --secondary: #524d46;
+  --border: #e3ded5;
+  --control: #857d73;
+  --accent: #b94a0a;
+  --accent-hover: #9c3e08;
+  --on-accent: #ffffff;
+  --alert: #fbeadc;
+  font: 100%/1.5 system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #141415;
+    --panel: #19191b;
+    --sunk: #232325;
+    --ink: #ededed;
+    --secondary: #a1a1a6;
+    --border: #303034;
+    --control: #75757b;
+    --accent: #ff8a3d;
+    --accent-hover: #ffa163;
+    --on-accent: #141415;
+    --alert: #2e1f15;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  min-height: 100svh;
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  width: min(100%, 29rem);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: clamp(1.25rem, 5vw, 2rem);
+}
+
+header, .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.brand {
+  color: var(--accent);
+  font-family: ui-rounded, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.2; margin: 1.5rem 0 1rem; }
+p { margin: 0 0 1rem; color: var(--secondary); }
+fieldset, label, input, select, button { font: inherit; }
+form, form label { display: grid; gap: .375rem; }
+form { gap: 1rem; }
+
+input, select, button {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--control);
+  border-radius: .625rem;
+  color: var(--ink);
+  background: var(--sunk);
+  padding: .5rem .75rem;
+}
+
+button { cursor: pointer; font-weight: 650; }
+button:disabled { opacity: .65; cursor: wait; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.primary:hover:not(:disabled) { background: var(--accent-hover); border-color: var(--accent-hover); }
+.actions { justify-content: flex-end; flex-wrap: wrap; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+dl {
+  display: grid;
+  gap: .375rem .75rem;
+  grid-template-columns: minmax(5.5rem, auto) minmax(0, 1fr);
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  padding: .875rem;
+  margin: 0 0 1.25rem;
+}
+
+dt { color: var(--secondary); }
+dd { margin: 0; overflow-wrap: anywhere; }
+#error { background: var(--alert); color: var(--ink); padding: .75rem; border-radius: .625rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

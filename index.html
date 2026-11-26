@@ -1,1 +1,59 @@
-<!doctype html><meta charset="utf-8"><title>Plandoko</title><p>Plandoko</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; connect-src https://lpkulogbcjxpxesqczea.supabase.co; base-uri 'none'; form-action 'none'">
+  <title>Plandoko</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js" integrity="sha384-uteMfOloLDGt042uDz+xHGF3ym63/WQ6rFq7murQRG8Ih7QrXGEGNtWd8688sb4O" crossorigin="anonymous"></script>
+  <script type="module" src="./page.js"></script>
+</head>
+<body>
+  <main class="panel" aria-labelledby="title">
+    <header>
+      <span class="brand">Plandoko</span>
+      <label class="language">
+        <span class="sr-only" data-copy="language">Language</span>
+        <select id="language">
+          <option value="en" lang="en">EN</option>
+          <option value="tr" lang="tr">TR</option>
+        </select>
+      </label>
+    </header>
+
+    <h1 id="title" tabindex="-1" data-copy="loading">Opening connection…</h1>
+    <p id="error" role="alert" hidden></p>
+    <noscript>Enable JavaScript to connect to Plandoko. Plandoko’ya bağlanmak için JavaScript’i açın.</noscript>
+
+    <form id="signin" method="post" hidden>
+      <label>
+        <span data-copy="email">Email</span>
+        <input id="email" type="email" autocomplete="username" required>
+      </label>
+      <label>
+        <span data-copy="password">Password</span>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit" class="primary" data-copy="signin">Sign in</button>
+    </form>
+
+    <section id="consent" hidden>
+      <p data-copy="consentIntro">This app is requesting access to your Plandoko account.</p>
+      <dl>
+        <dt data-copy="client">App</dt><dd id="client"></dd>
+        <dt data-copy="account">Account</dt><dd id="account"></dd>
+        <dt data-copy="permission">Plandoko access</dt><dd id="permission"></dd>
+        <dt data-copy="scopes">Requested scopes</dt><dd id="scopes"></dd>
+        <dt data-copy="returnTo">Returns to</dt><dd id="return-to"></dd>
+      </dl>
+      <div class="actions">
+        <button type="button" id="deny" data-copy="deny">Deny</button>
+        <button type="button" id="approve" class="primary" data-copy="approve">Allow</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
